@@ -44,13 +44,13 @@ dependencies {
     implementation("androidx.interpolator:interpolator:1.0.0")
     implementation("androidx.sharetarget:sharetarget:1.2.0-rc02")
 
-    compileOnly("org.checkerframework:checker-qual:3.24.0")
+    compileOnly("org.checkerframework:checker-qual:3.25.0")
     compileOnly("org.checkerframework:checker-compat-qual:2.5.5")
-    implementation("com.google.firebase:firebase-messaging:23.0.6")
-    implementation("com.google.firebase:firebase-config:21.1.1")
+    implementation("com.google.firebase:firebase-messaging:23.0.8")
+    implementation("com.google.firebase:firebase-config:21.1.2")
     implementation("com.google.firebase:firebase-datatransport:18.1.6")
     implementation("com.google.firebase:firebase-appindexing:20.0.0")
-    implementation("com.google.android.gms:play-services-auth:20.2.0")
+    implementation("com.google.android.gms:play-services-auth:20.3.0")
     implementation("com.google.android.gms:play-services-vision:20.1.3")
     implementation("com.google.android.gms:play-services-wearable:17.1.0")
     implementation("com.google.android.gms:play-services-location:20.0.0")
@@ -74,7 +74,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-stdlib-common
     implementation("org.jetbrains.kotlin:kotlin-stdlib-common:${Version.kotlin}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:${Version.kotlin}")
-    implementation("org.osmdroid:osmdroid-android:6.1.13")
+    implementation("org.osmdroid:osmdroid-android:6.1.14")
     implementation("com.android.billingclient:billing:5.0.0")
 }
 
@@ -144,6 +144,10 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(File(projectDir, "proguard-rules.pro"))
+        }
+
+        getByName("debug") {
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
